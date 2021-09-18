@@ -3,7 +3,7 @@ body{
 }
 
 .header {
-    background-color: black;
+    background-color: rgb(245, 10, 10);
     color: white;
 }
 
@@ -44,12 +44,13 @@ main p{
 }
 .aboutme h2 ul{
     font-weight: normal;
+    list-style: none;
 
 
 }
 
 .footer {
-    background-color: black;
+    background-color: rgb(248, 3, 3);
     color: white;
     padding: 40px 0;
     margin-top: 2rem;

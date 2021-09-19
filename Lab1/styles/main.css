@@ -53,10 +53,7 @@ main p{
 .aboutme h2 ul{
     font-weight: normal;
     list-style: none;
-
-
 }
-
 
 .footer {
     background-color: rgb(248, 3, 3);
@@ -64,5 +61,17 @@ main p{
     padding: 40px 0;
     margin-top: 2rem;
     font-family: 'Jura', sans-serif;
+    padding-bottom: 80px;
 
+}
+
+.footer p{
+    font-weight: normal;
+    list-style: none;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-bottom: 0%;
+    float: right;
+    border: 2px solid #fd4006;
+    padding: 4px;
 }

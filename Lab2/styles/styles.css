@@ -1,34 +1,66 @@
+
 body{
     text-align: center;
     margin: 0;
+    background-image: url(../images/fon1.png);  
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-color: rgba(248, 4, 4, 0.753);
 }
-.header{
+
+.main-menu{
+    max-width: 75%;
+    margin: 300px auto;
+    margin-bottom: 400px;
+    text-align: center;
+}
+.main-menu a{
+    color: rgb(243, 4, 4); 
+    font-size: 1.3rem;
+    font-weight: bolder;
+    text-decoration: none;
+    padding: 4px;
+    border: 3px solid #fff;
+    border-radius: 10px;
     background-color: black;
-    padding: 20px;
 }
-.main{
+.main-menu a:hover{
+    color:black;
+    background: rgb(243, 4, 4);
+    transition: 0.5s;
+}
+.left{
+    float: left;
+    margin-top: 0px;
+}
+.right{
+    margin-bottom: 0px;
+    text-align: right;
+}
+
+.footer {
+    background-color: rgb(248, 3, 3);
+    color: white;
+    padding: 30px 0;
+    margin-top: 2rem;
+}
+
+.footer p{
+    font-weight: normal;
+    font-size: 1rem;
+    list-style: none;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-bottom: 0%;
+    text-align: center;
+    float: right; 
+}
+
+.container {
     max-width: 75%;
     margin: 0 auto;
     text-align: left;
 }
-.main a{
-    color:white;
-    text-decoration: none;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 20px 0;
-   
-}
-.group{
-    max-width: 75%;
-    margin: auto;
-}
-.form-group{
-    margin: 10px 10px;
-}
-.form-group input{
-    margin: 5px 5px;
-}
-.form-auth{
-    margin: 8px 8px;
-}
+

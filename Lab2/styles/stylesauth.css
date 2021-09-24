@@ -1,0 +1,21 @@
+body{
+    text-align: center;
+    margin: 0;
+}
+.header{
+    background-color: black;
+    padding: 20px;
+}
+.main{
+    max-width: 75%;
+    margin: 0 auto;
+    text-align: left;
+}
+.main a{
+    color:white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px 0;
+   
+}

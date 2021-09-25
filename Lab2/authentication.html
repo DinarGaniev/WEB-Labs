@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles/stylesauth.css">
-    <title>Форма обратной связи</title>
+    <title>Форма аутентификации</title>
 </head>
 
 <body>
@@ -17,29 +17,41 @@
     </header>
     <main>
         <h1>Форма для аутентификации</h1>
-        <form method="POST" action="https://httpbin.org/post">
+        <form class="auth" method="POST" action="https://httpbin.org/post">
+            <div class="auth-2">
+                <div class="form-auth">
+                    <label for="login">Логин</label><br>
+                    <input class="paslog" type="text" id="login" name="login" required placeholder="username">
+                </div>
 
-            <div class="form-auth">
-                <label for="login">Введите логин</label>
-                <input type="text" id="login" name="login" placeholder="username" required>
-            </div>
+                <div class="form-auth">
+                    <label for="password">Пароль</label><br>
+                    <input class="paslog" type="password" id="password" name="password" required>
+                </div>
 
-            <div class="form-auth">
-                <label for="password">Введите пароль</label>
-                <input type="text" id="password" name="password" required>
-            </div>
+                <div class="form-auth">
+                    <input type="checkbox" name="remember" id="remember">
+                    <label for="remember">Запомнить меня</label>
+                </div>
 
-            <div class="form-auth">
-                <input type="checkbox" name="remember" id="remember">
-                <label for="remember">Запомнить меня</label>
-            </div>
-
-            <div class="form-auth">
-                <input type="submit" value="Войти">
+                <div class="form-auth">
+                    <input class="submit" type="submit" value="Войти">
+                </div>
             </div>
 
         </form>
     </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>
+                Мобильный телефон: +0 (456) 456-45-64.
+                Почта: dinar@gmail.com.
+            </p>
+            &copy; Ганиев Д.Р., 2021
+        </div>
+
+    </footer>
 </body>
 
 </html>

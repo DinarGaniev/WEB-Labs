@@ -1,11 +1,24 @@
 body{
     text-align: center;
     margin: 0;
+    background-image: url(../images/fon2.png);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-color: blue;
 }
 .header{
     background-color: black;
     padding: 20px;
+
 }
+h1{
+    margin: 0 20% 0 20%;
+    border: solid aqua;
+    color: white;
+}
+
 .main{
     max-width: 75%;
     margin: 0 auto;
@@ -17,5 +30,84 @@ body{
     font-size: 1.2rem;
     font-weight: bold;
     padding: 20px 0;
-   
+}
+
+.main a:hover{
+    color: red;
+    transition: 0,5s;
+}
+.auth{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25%;
+    margin-bottom: 25%;
+    height: 200px;
+    width: 320px;
+    border-radius: 10px;
+    border: solid #fff;
+    box-shadow: 0 4px 16px #ccc;
+    text-align: left;
+    background: url(../images/TFO.jpg);
+    background-position: center;
+    background-size: 150% auto;
+}
+.form-auth{
+    margin-bottom: 5px;
+    color: rgb(249, 250, 249);
+}
+
+.auth-2{
+    width: 80%;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.paslog{
+    text-align: center;
+    width: 100%;
+    padding: 5px 0 5px 0;
+    border-radius: 10px;
+    border: solid red; 
+    background-color: white; 
+    transition: 0.3s;
+}
+.submit{
+    border-radius: 10px;
+    background-color: green;
+    width: 100%;
+}
+
+.submit:hover{
+    color:green;
+    background: rgb(137, 218, 7);
+    transition: 0.5s;
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 30px 0;
+    margin-top: 2rem;
+    position: relative;
+    height: 20px;
+    width: 100%;
+    bottom: 0;
+}
+
+.footer p{
+    font-weight: normal;
+    font-size: 1rem;
+    list-style: none;
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-bottom: 0%;
+    text-align: center;
+    float: right; 
+}
+.container {
+    max-width: 75%;
+    margin: 0 auto;
+    text-align: left;
 }

@@ -5,32 +5,50 @@ body{
     background-position: center left, center right;
     background-repeat: no-repeat, no-repeat;
     background-size: 35% auto, 35% auto;
-    background-color: grey;
+    background-color: rgb(194, 192, 192);
+    font-family: 'Jura', sans-serif;
 }
+
 .header{
     background-color: black;
     padding: 20px;
 }
+
 .main{
     max-width: 75%;
     margin: 0 auto;
     text-align: left;
 }
+
 .main a{
     color:white;
     text-decoration: none;
     font-size: 1.2rem;
     font-weight: bold;
     padding: 20px 0;
-   
 }
+
+.main a:hover{
+    color: red;
+    transition: 0,5s;
+}
+
+h1{
+    width: 30%;
+    margin-right: auto;
+    margin-left: auto;
+    border: double 5px rgb(250, 18, 18);
+    padding: 3px 0 3px 0;
+}
+
 .group{
-    color:white;
+    color: black;
     height: auto;
     text-align: left;
     max-width: 40%;
     margin: auto;
 }
+
 .feedback{
     width: 80%;
     margin-top: 15px;
@@ -40,8 +58,10 @@ body{
     border: 2px solid rgb(217, 243, 243);
     border-radius: 20px;
     padding: 5px;
-    background-color: rgb(216, 207, 207);
+    background-color: rgb(60, 177, 245);
+    box-shadow: 0 4px 16px red;
 }
+
 .feedback img{
     width: 35%;
     height: auto;
@@ -50,46 +70,76 @@ body{
     background-color: white;
 
 }
+
 .form-group{
     margin-top: 10px;
     margin-bottom: 5px;
     text-align: left;
 
 }
+
 .form-group p{
     margin-top: 0;
     margin-bottom: 5px;
 }
+
 .form-group textarea{
     margin-top: 5px;
     width: 98%;
     resize: none;
+    border: 2px solid red;
+    border-radius: 10px;
+    font-family: 'Jura', sans-serif;
 }
+
 .select{
     font-size: 0.9rem;
     font-weight: 500;
     width: 100%;
     box-sizing: border-box;
-    border: 1px solid #aaa;
+    border: 1px solid red;
     border-radius: 0.5em;
     background-color: #fff;
-}
-
-.select option{
-    border: 1px solid #888;
-    background-color: #fff;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
 }
 
 .feedback_in{
     text-align: center;
     width: 98%;
+    border: 3px solid red;
+    border-radius: 20px;
+}
+
+.feedback_sub{
+    text-align: center;
+    width: 98%;
+    border: 3px solid red;
+    border-radius: 20px;
+    background-color: green;
+    font-family: 'Jura', sans-serif;
+    font-weight: bold;
+}
+
+.feedback_sub:hover{
+    color:green;
+    background: rgb(137, 218, 7);
+    transition: 0.5s;
 }
 
 .feed-file{
-    border: solid 1px;
-    width: auth;
+    color: black;
+    border: solid 1px red;
+    border-radius: 10px;
+    background-color:white;
+    font-family: 'Jura', sans-serif;
 }
 
+.feed-file:hover{
+    color:green;
+    background: greenyellow;
+    transition: 0.5s;
+}
 
 .footer {
     background-color: black;
@@ -111,6 +161,7 @@ body{
     text-align: center;
     float: right; 
 }
+
 .container {
     max-width: 75%;
     margin: 0 auto;

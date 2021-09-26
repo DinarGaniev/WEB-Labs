@@ -22,58 +22,64 @@
         <form class="group" method="POST" action="https://httpbin.org/post" enctype="multipart/form-data">
 
             <input type="hidden" name="user_id" value="3">
+            <div class="feedback">
 
-            <div class="form-group">
-                <label for="fio">ФИО</label>
-                <br>
-                <input type="text" id="fio" name="fio" required value="Иванов Иван Иванович">
-            </div>
+                <img src="images/form1.png">
 
-            <div class="form-group">
-                <labbel for="email">Email</labbel>
-                <br>
-                <input type="email" name="email" id="email" placeholder="ivanov@iv.ru" required>
-            </div>
 
-            <div class="form-group">
+                <div class="form-group">
+                    <label for="fio">ФИО</label>
+                    <br>
+                    <input class="feedback_in" type="text" id="fio" name="fio" required value="Иванов Иван Иванович">
+                </div>
 
-                <p>Как вы о нас узнали?</p>
-                <input type="radio" name="source" id="advertising" value="advertising" checked>
-                <label for="advertising">Реклама</label>
+                <div class="form-group">
+                    <labbel for="email">Email</labbel>
+                    <br>
+                    <input class="feedback_in" type="email" name="email" id="email" placeholder="ivanov@iv.ru" required>
+                </div>
 
-                <input type="radio" name="source" id="friends" value="friends">
-                <label for="friends">Друзья</label>
+                <div class="form-group">
 
-            </div>
+                    <p>Как вы о нас узнали?</p>
+                    <input type="radio" name="source" id="advertising" value="advertising" checked>
+                    <label for="advertising">Реклама</label>
 
-            <div class="form-group">
-                <label for="category">Категория обращения</label>
-                <br>
-                <select name="category" id="category">
-                    <!--multiple -->
-                    <option value="proposal">Предложение</option>
-                    <option value="feedback" selected>Отзыв</option>
-                </select>
-            </div>
+                    <input type="radio" name="source" id="friends" value="friends">
+                    <label for="friends">Друзья</label>
 
-            <div class="form-group">
-                <label for="msg">Cообщение</label>
-                <br>
-                <textarea name="msg" id="msg" cols="30" rows="10">Какой-то текст</textarea>
-            </div>
+                </div>
 
-            <div class="form-group">
-                <input type="checkbox" name="agreement" id="agreement" value="yes">
-                <label for="agreement">Согласие на обработку данных</label>
-            </div>
+                <div class="form-group">
+                    <select class="select" name="category" id="category">
+                        <!--multiple -->
+                        <option selected>Выберите категорию обращения</option>
+                        <option value="proposal">Предложение</option>
+                        <option value="feedback">Отзыв</option>
+                        <option value="complaint">Жалоба</option>
+                    </select>
+                </div>
 
-            <div class="form-group">
-                <label for="attachment">Вложение</label>
-                <input type="file" name="attachment" id="attacment">
-            </div>
+                <div class="form-group">
+                    <label for="msg">Cообщение</label>
+                    <br>
+                    <textarea name="msg" id="msg" cols="30" rows="10"></textarea>
+                </div>
 
-            <div class="form-group">
-                <input type="submit" value="Отправить">
+                <div class="form-group">
+                    <input type="checkbox" name="agreement" id="agreement" value="yes">
+                    <label for="agreement">Согласие на обработку данных</label>
+                </div>
+
+                <div class="form-group">
+                    <label for="attachment">Вложение</label>
+                    <input class="feed-file" type="file" name="attachment" id="attacment">
+                </div>
+
+                <div class="form-group">
+                    <input class="feedback_in" type="submit" value="Отправить">
+                </div>
+
             </div>
 
         </form>

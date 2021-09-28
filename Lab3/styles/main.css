@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+}
+
+.header {
+    background-color: black;
+    color: white;
+}
+
+.container {
+    max-width: 75%;
+    margin: 0 auto;
+
+}
+
+.main-menu {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 20px 0;
+}
+
+.main-menu a {
+    text-decoration: none;
+    color: white;
+    margin-right: 10px;
+
+}
+main p{
+    text-align: justify;
+}
+.avatar {
+    height: 350px;
+    text-align: left;
+    margin: 3rem 0;
+}
+.avatar img{
+    float:left;
+    height: 100%;
+    margin-right: 20px;
+    
+}
+.aboutme h2{
+    font-size: 1rem;
+}
+.aboutme h2 ul{
+    font-weight: normal;
+
+
+}
+
+.footer {
+    background-color: black;
+    color: white;
+    padding: 40px 0;
+    margin-top: 2rem;
+}

@@ -39,10 +39,15 @@ body::after{
 }
 
 .page-arrow{
-    float: right;
-    margin-bottom: 20px;
-    border: 2px solid red;
+    border: 3px solid red;
     background-color: black;
+    text-align: center;
+    position: fixed;
+    bottom: 100px;
+    right: 50px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
 }
 .page-arrow a{
     text-decoration: none;

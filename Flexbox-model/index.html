@@ -10,28 +10,25 @@
 </head>
 
 <body>
-    <header class="header">
+    <header class="header ">
         <div class="container">
             <nav>
                 <div class="navigation">
-                    <ul>
+                    <ul class="d-flex">
                         <li><a href="#">Главная</a></li>
                         <li><a href="#">Информация</a></li>
                         <li><a href="#">Прайс-лист</a></li>
                         <li><a href="#">Магазины</a></li>
                         <li><a href="#">Контакты</a></li>
-                        <li><a href="#">Входы</a></li>
+                        <li class="profile"><a href="#">Вход</a></li>
                     </ul>
-                </div>
-                <div class="profile">
-                    <a href="#">Вход</a>
                 </div>
             </nav>
         </div>
     </header>
 
     <main>
-        <div class="container">
+        <div class="container flex-wrapper">
             <aside class="sidebar">
                 <form>
                     <section class="sidebar-section">
@@ -39,16 +36,20 @@
 
                         <div class="form-group">
                             <input type="checkbox" name="manufacturer1" id="manufacturer1">
-                            <label for="">Производитель 1</label></div>
+                            <label for="">Производитель 1</label>
+                        </div>
                         <div class="form-group">
                             <input type="checkbox" name="manufacturer2" id="manufacturer2">
-                            <label for="">Производитель 2</label></div>
+                            <label for="">Производитель 2</label>
+                        </div>
                         <div class="form-group">
                             <input type="checkbox" name="manufacturer3" id="manufacturer3">
-                            <label for="">Производитель 3</label></div>
+                            <label for="">Производитель 3</label>
+                        </div>
                         <div class="form-group">
                             <input type="checkbox" name="manufacturer4" id="manufacturer4">
-                            <label for="">Производитель 4</label></div>
+                            <label for="">Производитель 4</label>
+                        </div>
                         <div class="form-group">
                             <input type="checkbox" name="manufacturer5" id="manufacturer5">
                             <label for="">Производитель 5</label>
@@ -62,8 +63,7 @@
                             <input type="radio" name="group" id="group1">
                             <label for=""> Группа 1</label>
                         </div>
-                        <div class="form-group"
-                        ><input type="radio" name="group" id="group2">
+                        <div class="form-group"><input type="radio" name="group" id="group2">
                             <label for=""> Группа 2</label>
                         </div>
                         <div class="form-group">
@@ -78,7 +78,7 @@
                             <input type="radio" name="group" id="group5">
                             <label for=""> Группа 5</label>
                         </div>
-        
+
                     </section>
                     <div class="form-group">
                         <input class="apply-bth" type="submit" value="Применить">
@@ -89,14 +89,211 @@
             <div class="page-content">
                 <h1 class="prod-category-header">Товары для дома</h1>
 
+                <div class="products-list">
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/chai.jpeg" alt="">
+                        </div>
+
+                        <div class="product-details">
+                            <header>Чайник</header>
+                            <p class="information">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend venenatis
+                                tincidunt. Aenean imperdiet nisl eu vestibulum ornare. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia curae; 
+                            </p>
+                            <div class="control">
+                                <button class="btn">
+                                    <span class="price">
+                                        1000 &#8381;
+                                    </span>
+                                    <span class="buy">
+                                        Заказать
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/chai.jpeg" alt="">
+                        </div>
+
+                        <div class="product-details">
+                            <header>Чайник</header>
+                            <p class="information">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend venenatis
+                                tincidunt. Aenean imperdiet nisl eu vestibulum ornare. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia curae; Praesent euismod, elit quis
+                                porta consectetur, lacus orci pulvinar nibh, eget placerat massa eros ullamcorper mi.
+                                Morbi venenatis imperdiet turpis, quis ullamcorper eros commodo ac. 
+                            </p>
+                            <div class="control">
+                                <button class="btn">
+                                    <span class="price">
+                                        1000 &#8381;
+                                    </span>
+                                    <span class="buy">
+                                        Заказать
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/chai.jpeg" alt="">
+                        </div>
+
+                        <div class="product-details">
+                            <header>Чайник</header>
+                            <p class="information">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend venenatis
+                                tincidunt. Aenean imperdiet nisl eu vestibulum ornare. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia curae; Praesent euismod, elit quis
+                                porta consectetur, lacus orci pulvinar nibh, eget placerat massa eros ullamcorper mi.
+                                Morbi venenatis imperdiet turpis, quis ullamcorper eros commodo ac. 
+                            </p>
+                            <div class="control">
+                                <button class="btn">
+                                    <span class="price">
+                                        1000 &#8381;
+                                    </span>
+                                    <span class="buy">
+                                        Заказать
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/chai.jpeg" alt="">
+                        </div>
+
+                        <div class="product-details">
+                            <header>Чайник</header>
+                            <p class="information">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend venenatis
+                                tincidunt. Aenean imperdiet nisl eu vestibulum ornare. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia curae; Praesent euismod, elit quis
+                                porta consectetur, lacus orci pulvinar nibh, eget placerat massa eros ullamcorper mi.
+                                Morbi venenatis imperdiet turpis, quis ullamcorper eros commodo ac. 
+                            </p>
+                            <div class="control">
+                                <button class="btn">
+                                    <span class="price">
+                                        1000 &#8381;
+                                    </span>
+                                    <span class="buy">
+                                        Заказать
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/chai.jpeg" alt="">
+                        </div>
+
+                        <div class="product-details">
+                            <header>Чайник</header>
+                            <p class="information">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend venenatis
+                                tincidunt. Aenean imperdiet nisl eu vestibulum ornare. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia curae; Praesent euismod, elit quis
+                                porta consectetur, lacus orci pulvinar nibh, eget placerat massa eros ullamcorper mi.
+                                Morbi venenatis imperdiet turpis, quis ullamcorper eros commodo ac. 
+                            </p>
+                            <div class="control">
+                                <button class="btn">
+                                    <span class="price">
+                                        1000 &#8381;
+                                    </span>
+                                    <span class="buy">
+                                        Заказать
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/chai.jpeg" alt="">
+                        </div>
+
+                        <div class="product-details">
+                            <header>Чайник</header>
+                            <p class="information">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend venenatis
+                                tincidunt. Aenean imperdiet nisl eu vestibulum ornare. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia curae; Praesent euismod, elit quis
+                                porta consectetur, lacus orci pulvinar nibh, eget placerat massa eros ullamcorper mi.
+                                Morbi venenatis imperdiet turpis, quis ullamcorper eros commodo ac. 
+                            </p>
+                            <div class="control">
+                                <button class="btn">
+                                    <span class="price">
+                                        1000 &#8381;
+                                    </span>
+                                    <span class="buy">
+                                        Заказать
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="product-card">
+                        <div class="product-image">
+                            <img src="images/chai.jpeg" alt="">
+                        </div>
+
+                        <div class="product-details">
+                            <header>Чайник</header>
+                            <p class="information">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis eleifend venenatis
+                                tincidunt. Aenean imperdiet nisl eu vestibulum ornare. Vestibulum ante ipsum primis in
+                                faucibus orci luctus et ultrices posuere cubilia curae; Praesent euismod, elit quis
+                                porta consectetur, lacus orci pulvinar nibh, eget placerat massa eros ullamcorper mi.
+                                Morbi venenatis imperdiet turpis, quis ullamcorper eros commodo ac. 
+                            </p>
+                            <div class="control">
+                                <button class="btn">
+                                    <span class="price">
+                                        1000 &#8381;
+                                    </span>
+                                    <span class="buy">
+                                        Заказать
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
                 
+                </div>
+
             </div>
 
-            <h1>Товары для дома</h1>
+            <div class="page-arrow">
+                <a href="#">&uarr;</a>
+            </div>
+
         </div>
     </main>
 
+    <footer class="footer">
+        <div class="container">
+            &copy; 2021 ООО Товары для дома
+        </div>
+    </footer>
 
 </body>
-
 </html>

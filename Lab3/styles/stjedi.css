@@ -1,0 +1,61 @@
+.navigation{
+    width: 200px;
+    height: auto;
+    flex-shrink: 0;
+    position: sticky;
+    padding-right: 20px;
+    top: 20px;
+}
+
+.navigation ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.navigation ul li{
+    margin-bottom: 10px;
+}
+
+.navigation a{
+    text-decoration: none;
+    color: black;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.page-content-jedi{
+    padding:20px;
+}
+
+.jedi-flex{
+    display: flex;
+}
+
+.jedi-list{
+    display: flex;
+    flex-wrap: wrap;
+    gap:20px;
+}
+.jedi-card{
+    width:500px;
+    height: 350px;
+    border: 2px solid black;
+    margin-top: auto;
+    display: flex;
+}
+.jedi-image{
+    flex-basis: 50%;
+    overflow: hidden;
+}
+
+.jedi-image img{
+    height: 100%;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+.jedi-name{
+    flex-basis: 50%;
+    padding: 10px;
+    text-align: justify;
+}

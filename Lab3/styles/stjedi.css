@@ -15,6 +15,7 @@ body{
     font-size: 1.4rem;
     font-weight: 900;
 }
+
 .page-content-jedi{
     padding:20px;
 }
@@ -30,6 +31,7 @@ body{
     flex-wrap: wrap;
     gap:20px;
 }
+
 .jedi-card{
     width:500px;
     height: 350px;
@@ -39,6 +41,7 @@ body{
     display: flex;
     align-items: center;
 }
+
 .jedi-image{
     box-sizing: border-box;
     height: 100%;
@@ -55,7 +58,6 @@ body{
     border-radius: 5px;
     width: 100%;
     height: auto;
-    text-align: center;
 }
 
 .img-Yoda{
@@ -66,6 +68,11 @@ body{
 .img-Plo{
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.img-Quigon{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .jedi-name{
@@ -84,5 +91,28 @@ body{
 
 .jedi-name p{
     margin: 10px 0 10px 0;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
+}
+
+@media(max-width: 768px){
+    
+    .jedi-flex{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header{
+        position: static;
+    }
+
+    .navigation{
+        position: static;
+    }
+
+    .jedi-card{
+        flex-direction: column;
+        height: auto;
+        width: 95%;
+        max-width: 350px;
+    }
 }

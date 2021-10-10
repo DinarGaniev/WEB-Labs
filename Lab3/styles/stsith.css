@@ -13,21 +13,38 @@ body{
     width:95%;
 }
 
+.theme{
+    border: 4px solid rgb(167, 2, 2);
+}
+
+.theme p{
+    color:rgb(167, 2, 2);
+}
+
 .sith-list{
     display: flex;
     flex-wrap: wrap;
     gap:20px;
 }
+
 .sith-card{
     width:500px;
     height: 350px;
-    border: 2px solid black;
+    border: 4px solid rgb(167, 2, 2);
     margin-top: auto;
     display: flex;
+    align-items: center;
+    border-radius: 8px;
 }
+
 .sith-image{
+    background-color: rgb(167, 2, 2);
     flex-basis: 50%;
     padding: 5px;
+    box-sizing: border-box;
+    margin: auto;
+    overflow: hidden;
+    height: 100%;
 }
 
 .sith-image img{
@@ -38,9 +55,64 @@ body{
     width: 100%;
     height: auto;
 }
+
+.img-Dooku{
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.img-Maul{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.img-Zannah{
+    margin-top: 16px;
+}
+
+.img-Marr{
+    margin-top: 20px;
+}
+
 .sith-name{
+    background-color: rgb(19, 18, 18);
+    color: rgb(167, 2, 2);
+    height: 100%;
     flex-basis: 50%;
     padding: 10px;
     text-align: justify;
-    border-left: 2px solid red;
+    box-sizing: border-box;
+}
+
+.sith-name header{
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.sith-name p{
+    margin: 10px 0 10px 0;
+    font-size: 0.8rem;
+}
+
+@media(max-width: 768px){
+    
+    .sith-flex{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header{
+        position: static;
+    }
+
+    .navigation{
+        position: static;
+    }
+
+    .sith-card{
+        flex-direction: column;
+        height: auto;
+        width: 95%;
+        max-width: 350px;
+    }
 }

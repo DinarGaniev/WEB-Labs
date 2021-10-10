@@ -3,6 +3,14 @@ body{
     background-image: none;
 }
 
+.theme{
+    border: 4px solid gold;
+}
+
+.theme p{
+    color: silver;
+}
+
 .page-content-mando{
     padding:20px;
 }
@@ -18,16 +26,25 @@ body{
     flex-wrap: wrap;
     gap:20px;
 }
+
 .mando-card{
     width:500px;
     height: 350px;
-    border: 2px solid black;
+    border: 4px solid black;
     margin-top: auto;
     display: flex;
+    align-items: center;
+    border-radius: 8px;
 }
+
 .mando-image{
     flex-basis: 50%;
     padding: 5px;
+    box-sizing: border-box;
+    margin: auto;
+    overflow: hidden;
+    height: 100%;
+    background-color: silver;
 }
 
 .mando-image img{
@@ -38,9 +55,61 @@ body{
     width: 100%;
     height: auto;
 }
+
+.img-Din, .img-Bo, .img-Arm{
+    margin-top: 10px;
+}
+
+.img-Paz{
+    margin-top: 67px;
+}
+
 .mando-name{
     flex-basis: 50%;
     padding: 10px;
     text-align: justify;
-    border-left: 2px solid red;
+    box-sizing: border-box;
+    margin: auto;
+    overflow: hidden;
+    height: 100%;
+    border-left: 4px solid black;
+    background-color: gold;
+    color: black;
+}
+
+.mando-name header{
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.mando-name p{
+    margin: 10px 0 10px 0;
+    font-size: 0.8rem;
+}
+
+@media(max-width: 768px){
+    
+    .mando-flex{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header{
+        position: static;
+    }
+
+    .navigation{
+        position: static;
+    }
+
+    .mando-card{
+        flex-direction: column;
+        height: auto;
+        width: 95%;
+        max-width: 350px;
+    }
+
+    .mando-name{
+        border-left: none;
+    }
 }

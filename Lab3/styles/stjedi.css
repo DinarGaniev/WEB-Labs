@@ -8,6 +8,7 @@ body{
 
 .jedi-flex{
     display: flex;
+    gap: 40px;
     width:95%;
 }
 

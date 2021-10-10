@@ -9,6 +9,8 @@ body{
 
 .sith-flex{
     display: flex;
+    gap: 40px;
+    width:95%;
 }
 
 .sith-list{

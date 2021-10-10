@@ -9,6 +9,8 @@ body{
 
 .mando-flex{
     display: flex;
+    gap: 40px;
+    width:95
 }
 
 .mando-list{

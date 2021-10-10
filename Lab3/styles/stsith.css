@@ -2,34 +2,33 @@ body{
     background-color: white;
     background-image: none;
 }
-.page-content-jedi{
+
+.page-content-sith{
     padding:20px;
 }
 
-.jedi-flex{
+.sith-flex{
     display: flex;
-    width:95%;
 }
 
-.jedi-list{
+.sith-list{
     display: flex;
     flex-wrap: wrap;
     gap:20px;
 }
-.jedi-card{
+.sith-card{
     width:500px;
     height: 350px;
     border: 2px solid black;
     margin-top: auto;
     display: flex;
 }
-.jedi-image{
+.sith-image{
     flex-basis: 50%;
-    overflow: hidden;
     padding: 5px;
 }
 
-.jedi-image img{
+.sith-image img{
     height: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
@@ -37,7 +36,7 @@ body{
     width: 100%;
     height: auto;
 }
-.jedi-name{
+.sith-name{
     flex-basis: 50%;
     padding: 10px;
     text-align: justify;

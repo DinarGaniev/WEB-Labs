@@ -2,6 +2,19 @@ body{
     background-color: white;
     background-image: none;
 }
+
+.theme{
+    border: 4px solid rgb(7, 189, 7);
+    border-radius: 4px;
+    text-align: center;
+    max-width: 50%;
+    margin: auto;
+}
+
+.theme p{
+    font-size: 1.4rem;
+    font-weight: 900;
+}
 .page-content-jedi{
     padding:20px;
 }
@@ -20,27 +33,56 @@ body{
 .jedi-card{
     width:500px;
     height: 350px;
-    border: 2px solid black;
+    border: 4px solid rgb(7, 189, 7);
     margin-top: auto;
+    border-radius: 8px;
     display: flex;
+    align-items: center;
 }
 .jedi-image{
+    box-sizing: border-box;
+    height: 100%;
     flex-basis: 50%;
-    overflow: hidden;
+    margin: auto;
     padding: 5px;
+    background-color: rgb(241, 226, 159);
+    overflow: hidden;
 }
 
 .jedi-image img{
-    height: 100%;
     margin-left: 50%;
     transform: translateX(-50%);
     border-radius: 5px;
     width: 100%;
     height: auto;
+    text-align: center;
 }
+
+.img-Yoda{
+    margin-top: 26px;
+    margin-bottom: 26px;
+}
+
+.img-Plo{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .jedi-name{
+    box-sizing: border-box;
+    height: 100%;
     flex-basis: 50%;
-    padding: 10px;
+    padding: 5px;
     text-align: justify;
-    border-left: 2px solid red;
+    background-color: rgb(241, 226, 159);
+}
+
+.jedi-name header{
+    font-size: 1.2rem;
+    font-weight: 900;
+}
+
+.jedi-name p{
+    margin: 10px 0 10px 0;
+    font-size: 0.9rem;
 }

@@ -114,6 +114,7 @@ body{
     }
 
     .mando-name{
+        border-top: 4px solid black;
         border-left: none;
     }
 }

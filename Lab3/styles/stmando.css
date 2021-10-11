@@ -87,6 +87,10 @@ body{
     font-size: 0.8rem;
 }
 
+.li-jedi{
+    border-bottom: none;
+}
+
 @media(max-width: 768px){
     
     .mando-flex{

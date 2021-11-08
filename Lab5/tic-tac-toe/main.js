@@ -84,23 +84,23 @@ function checkSideDiag(cells) {
 
 function clickHandler(event) {
     let winner;
-    if (event.target.innerHTML == 'cell') {
+    if (event.target.className == 'cell') {
         if (gameOver) {
-            alert('Игра завершена. Начните  новую игру');
+            alert('Игра завершена. Начните новую игру.');
             return;
         }
         if (event.target.innerHTML != '') {
-            alert('Эта клетка уже занята');
+            alert('Эта клетка уже занята!');
             return;
         }
-    }
-    event.target.innerHTML = turn == 0 ? 'O' : 'X';
-    turn = (turn + 1) % 2;
-    winner = checkWinner();
-    if (winner || !checlAvailableSteps()) {
-        alert(winner ? `${winner} одержал победу` : `Ничья!`);
-        gameOver = true;
-    }
+        event.target.innerHTML = turn == 0 ? 'O' : 'X';
+        turn = (turn + 1) % 2;
+        winner = checkWinner();
+        if (winner || !checkAvailableSteps()) {
+            alert(winner ? `${winner} одержал победу!` : 'Ничья');
+            gameOver = true;
+        }
+    } 
 }
 
 // 0 -- 0, 1 -- X

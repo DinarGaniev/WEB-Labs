@@ -108,6 +108,12 @@ body{
 .search-form{
     margin: 50px 0;
     display: flex;
+    flex-direction: column;
+}
+
+.serach-form-field{
+    display: flex;
+    flex-direction: row;
 }
 
 #search-field{
@@ -133,5 +139,29 @@ body{
 }
 
 .search-btn:hover{
+    color:white;
+    background-color: #1d3557;
+}
+
+.list-choice {
+    z-index: 1;
+    flex-direction: column;
+    width: 100%;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.list-choice li {
+    list-style-type: none;
+    background-color: white;
     color: black;
+    padding: 10px 10px 10px 15px;
+    border: 2px solid #e63946;
+    cursor: pointer;
+}
+
+.list-choice li:hover {
+    background-color: #1d3557;
+    color: white;
 }

@@ -76,7 +76,7 @@ function renderPaginationElement(info) {
 
     btn = createPageBtn(1, ['first-page-btn']);
     btn.innerHTML = 'Первая страница';
-    if(info.current_page == 1){
+    if (info.current_page == 1) {
         btn.style.visibility = 'hidden';
     }
     paginationContainer.append(btn);
@@ -93,7 +93,7 @@ function renderPaginationElement(info) {
 
     btn = createPageBtn(info.total_pages, ['first-page-btn']);
     btn.innerHTML = 'Последняя страница';
-    if(info.current_page == info.total_pages){
+    if (info.current_page == info.total_pages) {
         btn.style.visibility = 'hidden';
     }
     paginationContainer.append(btn);
@@ -102,7 +102,13 @@ function renderPaginationElement(info) {
 function downloadData(page = 1) {
     let factsList = document.querySelector('.facts-list');
     let perPage = document.querySelector('.per-page-btn').value;
-    let url = new URL(factsList.dataset.url);
+    let url;
+    if (newDataUrl == 0) {
+        url = new URL(factsList.dataset.url);
+    }
+    else{
+        url = new URL(newDataUrl);
+    }
     url.searchParams.append('page', page);
     url.searchParams.append('per-page', perPage);
     let xhr = new XMLHttpRequest();
@@ -131,4 +137,56 @@ window.onload = function () {
     downloadData();
     document.querySelector('.pagination').onclick = pageBtnHandler;
     document.querySelector('.per-page-btn').onchange = perPageBtnHandler;
+    let searchBtn = document.querySelector('.search-btn');
+    searchBtn.addEventListener('click', perSeacrchBtnHandler);
+    document.getElementById('search-field').oninput = emersionInputList;
+    let listelem = document.querySelector('.list-choice');
+    listelem.addEventListener('click', clickElemList);
+}
+
+let newDataUrl = 0;
+
+function perSeacrchBtnHandler(event){
+    let input = document.querySelector('input');
+    newDataUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/facts?q=" + input.value;
+    downloadData();
+}
+
+function emersionInputList(event){
+    let input = document.querySelector('input');
+    let requestURL= "http://cat-facts-api.std-900.ist.mospolytech.ru/autocomplete?q=" + input.value;
+    if (event.target){
+        let ul = document.getElementById('list');
+        ul.innerHTML = '';
+        downloadInput(requestURL);
+    }
+}
+
+function downloadInput(requestURL) {
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', requestURL);
+    xhr.responseType = 'json';
+    xhr.onload = function () {
+        createListInput(this.response);
+    }
+    xhr.send();
+}
+
+function createListInput(arrayList) {
+    let ul = document.getElementById('list');
+    for (let i = 0; i < arrayList.length; i++) {
+        let li = document.createElement('li');
+        li.innerHTML = arrayList[i];
+        ul.append(li);
+    }
+}
+
+function clickElemList(event) {
+    let li = event.target;
+    let input = document.querySelector('input');
+    newDataUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/facts?q=" + li.innerHTML;
+    let ul = document.getElementById('list');
+    ul.innerHTML = '';
+    input.value = li.innerHTML;
+    downloadData();
 }

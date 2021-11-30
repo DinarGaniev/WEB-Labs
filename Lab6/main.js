@@ -103,7 +103,7 @@ function downloadData(page = 1) {
     let factsList = document.querySelector('.facts-list');
     let perPage = document.querySelector('.per-page-btn').value;
     let url;
-    if (newUrl == 0) {
+    if (newUrl == null) {
         url = new URL(factsList.dataset.url);
     }
     else {
@@ -144,7 +144,7 @@ window.onload = function () {
     listelem.addEventListener('click', clickElemList);
 }
 
-let newUrl = 0;
+let newUrl = null;
 
 function perSeacrchBtnHandler(event) {
     let input = document.querySelector('input');
@@ -195,7 +195,6 @@ function clickElemList(event) {
     let newDataUrl = new URL('http://cat-facts-api.std-900.ist.mospolytech.ru/facts');
     newDataUrl.searchParams.append('q', li.innerHTML);
     newUrl = newDataUrl;
-    // newUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/facts?q=" + li.innerHTML;
     let ul = document.getElementById('list');
     ul.innerHTML = '';
     input.value = li.innerHTML;

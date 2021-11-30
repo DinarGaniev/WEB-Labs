@@ -109,6 +109,7 @@ body{
     margin: 50px 0;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .serach-form-field{
@@ -144,10 +145,15 @@ body{
 }
 
 .list-choice {
+    top: 45px;
+    right: 0;
+    left: 0;
     z-index: 1;
+    display: flex;
     flex-direction: column;
+    height: auto;
     width: 100%;
-    height: 20px;
+    position: absolute;
     padding: 0;
     margin: 0;
 }

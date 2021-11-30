@@ -106,7 +106,7 @@ function downloadData(page = 1) {
     if (newUrl == 0) {
         url = new URL(factsList.dataset.url);
     }
-    else{
+    else {
         url = new URL(newUrl);
     }
     url.searchParams.append('page', page);
@@ -146,16 +146,19 @@ window.onload = function () {
 
 let newUrl = 0;
 
-function perSeacrchBtnHandler(event){
+function perSeacrchBtnHandler(event) {
     let input = document.querySelector('input');
-    newUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/facts?q=" + input.value;
+    let newDataUrl = new URL('http://cat-facts-api.std-900.ist.mospolytech.ru/facts');
+    newDataUrl.searchParams.append('q', input.value);
+    newUrl = newDataUrl;
     downloadData();
 }
 
-function emersionInputList(event){
+function emersionInputList(event) {
     let input = document.querySelector('input');
-    let requestURL= "http://cat-facts-api.std-900.ist.mospolytech.ru/autocomplete?q=" + input.value;
-    if (event.target){
+    let requestURL = new URL('http://cat-facts-api.std-900.ist.mospolytech.ru/autocomplete');
+    requestURL.searchParams.append('q', input.value);
+    if (event.target) {
         let ul = document.getElementById('list');
         ul.innerHTML = '';
         downloadInput(requestURL);
@@ -184,7 +187,10 @@ function createListInput(arrayList) {
 function clickElemList(event) {
     let li = event.target;
     let input = document.querySelector('input');
-    newUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/facts?q=" + li.innerHTML;
+    let newDataUrl = new URL('http://cat-facts-api.std-900.ist.mospolytech.ru/facts');
+    newDataUrl.searchParams.append('q', li.innerHTML);
+    newUrl = newDataUrl;
+    // newUrl = "http://cat-facts-api.std-900.ist.mospolytech.ru/facts?q=" + li.innerHTML;
     let ul = document.getElementById('list');
     ul.innerHTML = '';
     input.value = li.innerHTML;

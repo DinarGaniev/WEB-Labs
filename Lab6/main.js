@@ -151,6 +151,11 @@ function perSeacrchBtnHandler(event) {
     let newDataUrl = new URL('http://cat-facts-api.std-900.ist.mospolytech.ru/facts');
     newDataUrl.searchParams.append('q', input.value);
     newUrl = newDataUrl;
+    let li;
+    if (li = event.target) {
+        let ul = document.getElementById('list');
+        ul.innerHTML = '';
+    }
     downloadData();
 }
 

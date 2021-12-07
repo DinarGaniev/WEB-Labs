@@ -1,0 +1,35 @@
+.banner{
+    background-color: rgb(215, 215, 250);
+}
+
+.heading-line{
+    height: 3px;
+    width: 200px;
+    background-color: rgb(31, 233, 223);
+}
+
+.call-to-action{
+    background-color: rgb(5, 21, 70);
+    color: white;
+}
+
+.program i{
+    font-size: 2rem;
+    color: rgb(31, 233, 223);
+}
+
+.dark{
+    background-color: rgb(5, 21, 70);
+    color: rgb(31, 233, 223);
+    min-height: 300px;
+}
+
+.tech-image{
+    object-fit: cover;
+    min-height: 300px;
+}
+
+.footer{
+    background-color: rgb(5, 21, 70);
+    color: white;
+}

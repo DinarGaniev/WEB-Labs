@@ -5,43 +5,38 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Jura:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.1/font/bootstrap-icons.css">
 
     <link rel="stylesheet" href="styles.css">
-
-    <title>Основы веб-технологий</title>
+    <title>Imperial academy</title>
 </head>
 
 <body>
-    <header class="header sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <header class="header sticky-lg-top border-bottom border-4">
+        <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="images/logo_187_50.png" alt="logo">
+                    <h1>"Имперская академия"</h1>
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse navbar-dark" id="navbarNav">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">О курсе</a>
+                            <a class="nav-link active" aria-current="page" href="#">Главная</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Программа</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Технологии</a>
+                            <a class="nav-link" href="#">Вход</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Контакты</a>
+                            <a class="nav-link" href="#">Регистрация</a>
                         </li>
                     </ul>
                 </div>
@@ -50,148 +45,99 @@
     </header>
 
     <main>
-        <div class="banner">
+        <div class="information border-bottom border-4 border-primary">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-6 col py-3 py-lg-5">
-                        <div class="roe">
-                            <div class="col-lg-10 offset-lg-1 text-center text-lg-start">
-                                <h1>Основы веб-технологий</h1>
+                    <div class="col py-2 col-lg-6 py-lg-5">
+                        <div class="row">
+                            <div class="col col-lg-10 offset-lg-1 text-center text-lg-start">
+                                <h1>Имперская академия</h1>
                                 <p>
-                                    Краткое описание
+                                    Военное учебное заведение Галактической Империи, в котором реализовывается военная
+                                    тренировочная программа, нацеленная на подготовку офицеров и солдат для имперских
+                                    вооружённых
+                                    сил.
                                 </p>
-
-                                <button class="btn btn-lg btn-outline-secondary mb-3">Подробнее</button>
-                                <button class="btn btn-lg btn-secondary mb-3">Написать нам</button>
                             </div>
                         </div>
-
                     </div>
-                    <div class="col-lg-6 col py-3 py-lg-5 d-flex justify-content-center align-items-center">
-                        <img src="images/web-dev.svg" alt="">
+                    <div class=" col-lg-6 py-lg-5 col py-2 d-flex justify-content-center align-items-center">
+                        <img class="image-empire" src="images/ec994e5fb370ac10fdcde380e85a7630.jpg" alt="">
                     </div>
                 </div>
             </div>
         </div>
 
-
-        <section class="call-to-action py-5">
+        <section class="speciality border-bottom border-4 py-5">
             <div class="conteiner text-center">
-                <h2 class="mb-3">Заложите прочный фундамент будущей работы</h2>
-                <div class="heading-line mx-auto"></div>
-                <p class="my-3">
-                    Описание
-                </p>
-                <button class="btn btn-lg btn-primary">Записаться на курс</button>
-
+                <h2 class="mb-2 py-2">Специальности</h2>
             </div>
-        </section>
-
-        <section class="program container py-5">
-            <div class="conteiner text-center">
-                <h2 class="mb-3">Программа курса</h2>
-                <div class="heading-line mx-auto"></div>
-            </div>
-
             <div class="row">
-                <div class="col-md-6 col-lg-4 text-center mb-5">
-                    <i class="bi bi-code-slash"></i>
-                    <h4 class="my-3">Tools</h4>
-                    <p class=mb-3>Описание</p>
+                <div class="col-lg-3 col-md-6 mb-2">
+                    <div class="row">
+                        <div class="col-lg text-center">
+                            <img class="speciality-img border-bottom border-4" src="images/Stormtrooper.png" alt="">
+                            <p>Штурмовик</p>  
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <i class="bi bi-code-slash"></i>
-                    <h4 class="my-3">HTML</h4>
-                    <p class=mb-3>Описание</p>
+
+                <div class="col-lg-3 col-md-6 mb-2 ">
+                    <div class="row">
+                        <div class="col-lg text-center">
+                            <img class="speciality-img border-bottom border-4" src="images/Death_Trooper-Sideshow.png"
+                                alt="">
+                            <p>Элитный штурмовик</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <i class="bi bi-code-slash"></i>
-                    <h4 class="my-3">CSS</h4>
-                    <p class=mb-3>Описание</p>
+
+                <div class="col-lg-3 col-md-6 mb-2 ">
+                    <div class="row">
+                        <div class="col-lg text-center">
+                            <img class="speciality-img border-bottom border-4"
+                                src="images/TIEPilot-AdvancedGraphics.png" alt="">
+                            <p>Пилот истребителя</p>
+                            
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <i class="bi bi-code-slash"></i>
-                    <h4 class="my-3">HTTP</h4>
-                    <p class=mb-3>Описание</p>
-                </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <i class="bi bi-code-slash"></i>
-                    <h4 class="my-3">JS</h4>
-                    <p class=mb-3>Описание</p>
-                </div>
-                <div class="col-md-6 col-lg-4 text-center">
-                    <i class="bi bi-code-slash"></i>
-                    <h4 class="my-3">Bootstrap</h4>
-                    <p class=mb-3>Описание</p>
+
+                <div class="col-lg-3 col-md-6 mb-2 ">
+                    <div class="row">
+                        <div class="col-lg text-center">
+                            <img class="speciality-img border-bottom border-4" src="images/Mudtrooper.png" alt="">
+                            <p>Болотный солдат</p>
+                            
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <section class="technologies bg-light py-5">
-            <div class="container-fluid"></div>
-            <div class="conteiner text-center mb-5">
-                <h2 class="mb-3">Технологии</h2>
-                <div class="heading-line mx-auto"></div>
+        <section class="contacts container py-5">
+            <div class="container text-center">
+                <h2 class="mb-2 py-2">Контакты</h2>
             </div>
-
             <div class="row">
-                <div class="col-md-6 col-lg-3 p-0">
-                    <img class="img-fluid tech-image" src="images/html.jpg" alt="">
-                </div>
-                <div class="col-md-6 col-lg-3 p-0 d-flex align-items-center justify-content-center dark">
-
-                    <h4>HTML&CSS</h4>
-
-                </div>
-                <div class="col-md-6 col-lg-3 p-0">
-                    <img class="img-fluid tech-image" src="images/js.jpg" alt="">
-                </div>
-                <div class="col-md-6 col-lg-3 p-0 d-flex align-items-center justify-content-center dark">
-
-                    <h4>JavaScript</h4>
+                <div class="col-lg-6 mb-5 ml-lg-12 text-center text-lg-start">
+                    <p class="mb-1">Хочешь поступить в акдемию?</p>
+                    <p class="mb-1">Наши контакты:</p>
+                    <ul class="list-group">
+                        <li>Почта: empire@vaider.palp</li>
+                        <li>Телефон: 1 (757) 901-00-22</li>
+                    </ul>
+                    <img class="image-empire" src="images/Enlist.jpg" alt="">
+                    <p class="mb-2 mt-3">Ты всегда можешь задать вопрос. Просто заполни форму.</p>
 
                 </div>
-                <div class="col-md-6 col-lg-3 p-0">
-                    <img class="img-fluid tech-image" src="images/bootstrap.jpg" alt="">
-                </div>
-                <div class="col-md-6 col-lg-3 p-0 d-flex align-items-center justify-content-center dark">
 
-                    <h4>Bootstrap</h4>
-
-                </div>
-                <div class="col-md-6 col-lg-3 p-0 d-flex align-items-center justify-content-center">
-                    <img class="img-fluid tech-image" src="images/http.jpg" alt="">
-                </div>
-                <div class="col-md-6 col-lg-3 p-0 d-flex align-items-center justify-content-center dark">
-
-                    <h4>HTTP</h4>
-
-                </div>
-            </div>
-
-        </section>
-
-
-        <section class="contacts container">
-            <div class="conteiner text-center my-5">
-                <h2 class="mb-3">Контакты</h2>
-                <div class="heading-line mx-auto"></div>
-            </div>
-
-            <div class="row">
-                <div class="col-lg-6 mb-5">
-                    <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8974.716101343878!2d37.7112893!3d55.7814463!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xc42703145fe53a8d!2z0JzQvtGB0LrQvtCy0YHQutC40Lkg0L_QvtC70LjRgtC10YXQvdC40YfQtdGB0LrQuNC5INGD0L3QuNCy0LXRgNGB0LjRgtC10YI!5e0!3m2!1sru!2sru!4v1638272770690!5m2!1sru!2sru"
-                        width="100%" height="100%" style="border:0; min-height: 450px;" allowfullscreen=""
-                        loading="lazy"></iframe>
-                </div>
-                <div class="col-lg-6 mb-5">
+                <div class="col-lg-6 mb-2">
                     <form>
                         <div class="mb-3">
                             <label class="form-label" for="email">Электронная почта</label>
                             <input class="form-control" type="email" name="email" id="email"
                                 placeholder="Введите адрес электронной почты">
-                            <span class="form-text">Мы не передаем данные третьим лицам.</span>
                         </div>
 
                         <div class="mb-3">
@@ -200,9 +146,9 @@
                         </div>
 
                         <div class="mb-3">
-                            <label class="form-label" for="message">Сообщение</label>
+                            <label class="form-label" for="message">Вопрос</label>
                             <textarea class="form-control" name="message" id="message" cols="30" rows="10"
-                                placeholder="Введите текс"></textarea>
+                                placeholder="Введите вопрос"></textarea>
                         </div>
 
                         <div class="text-center text-lg-start">
@@ -212,24 +158,12 @@
                     </form>
                 </div>
             </div>
-
         </section>
     </main>
 
-    <footer class="footer">
-        <div class="text-center py-5">
-            <a href="#">
-                <img src="images/logo_187_50_white.png" alt="logo">
-            </a>
-        </div>
-        <div class="container mb-3 text-center">
-            <p>
-                Московский политехнический университет
-            </p>
-        </div>
-
+    <footer class="footer border-top border-4">
         <div class="text-center py-3 border-top text-muted">
-            <p>&copy; 2021 Московский политехнический университет</p>
+            <p>&copy; 2021, Имперская академия г.Сандари</p>
         </div>
     </footer>
 

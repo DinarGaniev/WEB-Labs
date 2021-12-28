@@ -1,5 +1,6 @@
 'use strict';
 
+
 async function serverRequest(url) {
     return fetch(url)
         .then(response => response.json())
@@ -74,53 +75,6 @@ function createTaskElementFromData(jsonData) {
     return newTaskElement;
 }
 
-async function postTask(form) {
-    let formData = new FormData();
-    formData.append('desc', form.elements['description'].value);
-    formData.append('name', form.elements['name'].value);
-    formData.append('status', form.elements['column'].value);
-
-    return fetch('http://tasks-api.std-900.ist.mospolytech.ru/api/tasks?api_key=50d2199a-42dc-447d-81ed-d68a443b697e', {
-        method: 'POST',
-        body: formData
-    }).then(response => response.json())
-}
-
-const deleteTask = async (deleteId) => {
-    let URL = createURLl('/api/tasks', deleteId);
-    const response = await fetch(URL, {
-        method: 'DELETE',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: null
-    });
-
-    const data = await response.json();
-    console.log(data);
-};
-
-async function putTask(putName, putDesc, taskId) {
-    let formData = new FormData();
-    formData.append('desc', putDesc);
-    formData.append('name', putName);
-    let url = createURLl('/api/tasks', taskId);
-    return fetch(url, {
-        method: 'PUT',
-        body: formData
-    }).then(response => response.json())
-}
-
-async function putTaskStatus(putStatus, taskId) {
-    let formData = new FormData();
-    formData.append('status', putStatus);
-    let url = createURLl('/api/tasks', taskId);
-    return fetch(url, {
-        method: 'PUT',
-        body: formData
-    }).then(response => response.json())
-}
-
 function showAlert(msg, category = 'success') {
     let alerts = document.querySelector('.alerts');
     let newAlertElement = document.querySelector('.alert-template').cloneNode(true);
@@ -157,10 +111,66 @@ function createTaskElement(form) {
     return newTaskElement;
 }
 
+async function postTask(form) {
+    let formData = new FormData();
+    formData.append('desc', form.elements['description'].value);
+    formData.append('name', form.elements['name'].value);
+    formData.append('status', form.elements['column'].value);
+
+    if (form.elements['description'].value == '' || form.elements['name'].value == ''){
+        let errorMsg = 'Не заполнена строка: описание задачи или название задачи, или обе строки';
+        showAlertWarning(errorMsg);
+    }
+
+    return fetch('http://tasks-api.std-900.ist.mospolytech.ru/api/tasks?api_key=50d2199a-42dc-447d-81ed-d68a443b697e', {
+        method: 'POST',
+        body: formData
+    }).then(response => response.json())
+}
+
+const deleteTask = async (deleteId) => {
+    let URL = createURLl('/api/tasks', deleteId);
+    const response = await fetch(URL, {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: null
+    });
+
+    const data = await response.json();
+    console.log(data);
+};
+
 function updateTask(form) {
     let taskElement = document.getElementById(form.elements['task-id'].value);
-    taskElement.querySelector('.task-name').innerHTML = form.elements['name'].value;
-    taskElement.querySelector('.task-description').innerHTML = form.elements['description'].value;
+    let taskId = form.elements['task-id'].value;
+    let putName = taskElement.querySelector('.task-name').innerHTML;
+    putName = form.elements['name'].value;
+    let putDesc = taskElement.querySelector('.task-description').innerHTML;
+    putDesc = form.elements['description'].value;
+    putTask(putName, putDesc, taskId);
+}
+
+async function putTask(putName, putDesc, taskId) {
+    let formData = new FormData();
+    formData.append('desc', putDesc);
+    formData.append('name', putName);
+    let url = createURLl('/api/tasks', taskId);
+    return fetch(url, {
+        method: 'PUT',
+        body: formData
+    }).then(response => response.json())
+}
+
+async function putTaskStatus(putStatus, taskId) {
+    let formData = new FormData();
+    formData.append('status', putStatus);
+    let url = createURLl('/api/tasks', taskId);
+    return fetch(url, {
+        method: 'PUT',
+        body: formData
+    }).then(response => response.json())
 }
 
 function actionTaskBtnHandler(event) {
@@ -173,13 +183,15 @@ function actionTaskBtnHandler(event) {
         listElement = document.getElementById(`${form.elements['column'].value}-list`);
         listElement.append(createTaskElement(form));
 
+
         tasksCounterElement = listElement.closest('.card').querySelector('.tasks-counter');
         tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) + 1;
+
+        postTask(form);
 
         alertMsg = `Задача ${form.elements['name'].value} была успешно создана!`;
     } else if (action == 'edit') {
         updateTask(form);
-
         alertMsg = `Задача ${form.elements['name'].value} была успешно обновлена!`;
     }
 
@@ -188,11 +200,11 @@ function actionTaskBtnHandler(event) {
     }
 }
 
-function setFormValues(form, taskId) {
-    let taskElement = document.getElementById(taskId);
-    form.elements['name'].value = taskElement.querySelector('.task-name').innerHTML;
-    form.elements['description'].value = taskElement.querySelector('.task-description').innerHTML;
-    form.elements['task-id'].value = taskId;
+function setFormValues(form, jsonData) {
+    let taskElement = document.getElementById(jsonData.id);
+    form.elements['name'].value = jsonData.name;
+    form.elements['description'].value = jsonData.desc;
+    form.elements['task-id'].value = jsonData.id;
 }
 
 function resetForm(form) {
@@ -213,7 +225,7 @@ function prepareModalContent(event) {
     event.target.querySelector('.action-task-btn').innerHTML = actionBtnText[action];
 
     if (action == 'edit' || action == 'show') {
-        setFormValues(form, event.relatedTarget.closest('.task').id);
+        downloadTaskId(event.relatedTarget.closest('.task').id).then(jsonData => setFormValues(form, jsonData));
         event.target.querySelector('select').closest('.mb-3').classList.add('d-none');
     }
 
@@ -221,6 +233,20 @@ function prepareModalContent(event) {
         form.elements['name'].classList.add('form-control-plaintext');
         form.elements['description'].classList.add('form-control-plaintext');
     }
+}
+
+function deleteTaskBtnHandler(event) {
+    let form = event.target.closest('.modal').querySelector('form');
+    let alertMsg = `Задача ${form.elements['task-id'].value} была успешно удалена!`;
+    let taskElement = document.getElementById(form.elements['task-id'].value);
+    let deleteId = form.elements['task-id'].value;
+
+    let tasksCounterElement = taskElement.closest('.card').querySelector('.tasks-counter');
+    tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) - 1;
+    if (alertMsg) {
+        showAlert(alertMsg);
+    }
+    deleteTask(deleteId).then(taskElement.remove()).then(console.log('успешно удалено'));
 }
 
 function moveBtnHandler(event) {
@@ -244,20 +270,6 @@ function moveBtnHandler(event) {
     if (alertMsg) {
         showAlert(alertMsg);
     }
-}
-
-function deleteTaskBtnHandler(event) {
-    let form = event.target.closest('.modal').querySelector('form');
-    let alertMsg = `Задача ${form.elements['task-id'].value} была успешно удалена!`;
-    let taskElement = document.getElementById(form.elements['task-id'].value);
-    let deleteId = form.elements['task-id'].value;
-
-    let tasksCounterElement = taskElement.closest('.card').querySelector('.tasks-counter');
-    tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) - 1;
-    if (alertMsg) {
-        showAlertWarning(alertMsg);
-    }
-    deleteTask(deleteId).then(taskElement.remove()).then(console.log('Удаление произошло успешно'));
 }
 
 let taskCounter = 0;

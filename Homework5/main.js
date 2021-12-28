@@ -9,9 +9,9 @@ async function serverRequest(url) {
 }
 
 function errorAlert() {
-    let errorMsg = 'Пользователь с указанным api_key не найден!';
+    let errorMsg = 'Пользователь с данным api_key не найден!';
     if (errorMsg) {
-        showAlertDanger(errorMsg);
+        showAlert(errorMsg, 'danger');
     }
 }
 
@@ -75,26 +75,19 @@ function createTaskElementFromData(jsonData) {
     return newTaskElement;
 }
 
-function showAlert(msg, category = 'success') {
+function showAlert(msg, category) {
     let alerts = document.querySelector('.alerts');
     let newAlertElement = document.querySelector('.alert-template').cloneNode(true);
     newAlertElement.querySelector('.msg').innerHTML = msg;
-    newAlertElement.classList.remove('d-none');
-    alerts.append(newAlertElement);
-}
-
-function showAlertWarning(msg, category = 'warning') {
-    let alerts = document.querySelector('.alerts-warning');
-    let newAlertElement = document.querySelector('.alert-template2').cloneNode(true);
-    newAlertElement.querySelector('.msg').innerHTML = msg;
-    newAlertElement.classList.remove('d-none');
-    alerts.append(newAlertElement);
-}
-
-function showAlertDanger(msg, category = 'danger') {
-    let alerts = document.querySelector('.alerts-danger');
-    let newAlertElement = document.querySelector('.alert-template3').cloneNode(true);
-    newAlertElement.querySelector('.msg').innerHTML = msg;
+    if (category == 'success') {
+        newAlertElement.classList.add('alert-success');
+    }
+    else if (category == 'warning') {
+        newAlertElement.classList.add('alert-warning');
+    }
+    else if (category == 'danger') {
+        newAlertElement.classList.add('alert-danger');
+    }
     newAlertElement.classList.remove('d-none');
     alerts.append(newAlertElement);
 }
@@ -117,9 +110,9 @@ async function postTask(form) {
     formData.append('name', form.elements['name'].value);
     formData.append('status', form.elements['column'].value);
 
-    if (form.elements['description'].value == '' || form.elements['name'].value == ''){
-        let errorMsg = 'Не заполнена строка: описание задачи или название задачи, или обе строки';
-        showAlertWarning(errorMsg);
+    if (form.elements['description'].value == '' || form.elements['name'].value == '') {
+        let errorMsg = 'Не заполнено поле: описание задачи или название задачи. Или не заполнены оба поля.';
+        showAlert(errorMsg, 'warning');
     }
 
     return fetch('http://tasks-api.std-900.ist.mospolytech.ru/api/tasks?api_key=50d2199a-42dc-447d-81ed-d68a443b697e', {
@@ -187,7 +180,7 @@ function actionTaskBtnHandler(event) {
         tasksCounterElement = listElement.closest('.card').querySelector('.tasks-counter');
         tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) + 1;
 
-        postTask(form);
+        postTask(form); //использовать then для элементов ниже 
 
         alertMsg = `Задача ${form.elements['name'].value} была успешно создана!`;
     } else if (action == 'edit') {
@@ -196,7 +189,7 @@ function actionTaskBtnHandler(event) {
     }
 
     if (alertMsg) {
-        showAlert(alertMsg);
+        showAlert(alertMsg, 'success');
     }
 }
 
@@ -244,7 +237,7 @@ function deleteTaskBtnHandler(event) {
     let tasksCounterElement = taskElement.closest('.card').querySelector('.tasks-counter');
     tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) - 1;
     if (alertMsg) {
-        showAlert(alertMsg);
+        showAlert(alertMsg, 'success');
     }
     deleteTask(deleteId).then(taskElement.remove()).then(console.log('успешно удалено'));
 }
@@ -268,7 +261,7 @@ function moveBtnHandler(event) {
     tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) + 1;
     let alertMsg = `Задача ${taskElement.querySelector('.task-name').innerHTML} была успешно обновлена!`;
     if (alertMsg) {
-        showAlert(alertMsg);
+        showAlert(alertMsg, 'success');
     }
 }
 

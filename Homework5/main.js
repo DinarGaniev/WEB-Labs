@@ -1,23 +1,10 @@
 'use strict';
 
-
-async function serverRequest(url) {
+async function ServerRequest(url) {
     return fetch(url)
         .then(response => response.json())
         .then(commits => { return commits.tasks })
-        .catch(() => errorAlert());
-}
-
-function errorAlert() {
-    let errorMsg = 'Пользователь с данным api_key не найден!';
-    if (errorMsg) {
-        showAlert(errorMsg, 'danger');
-    }
-}
-
-async function serverRequest2(url) {
-    return fetch(url)
-        .then(response => response.json());
+        .catch(error => alert(error.status));
 }
 
 function createURL(params) {
@@ -37,37 +24,30 @@ function createURLl(params, id) {
 
 async function downloadForm() {
     let url = createURL('/api/tasks');
-    let jsonData = await serverRequest(url);
-    if (jsonData == undefined) errorAlert();
-    console.log(jsonData);
-    return jsonData;
-}
-
-async function downloadTaskId(taskId) {
-    let url = createURLl('/api/tasks', taskId);
-    let jsonData = await serverRequest2(url);
+    let jsonData = await ServerRequest(url);
     console.log(jsonData);
     return jsonData;
 }
 
 function getTask(jsonData) {
     for (let i = 0; i < jsonData.length; i++) {
-        let listElement = document.getElementById(`${jsonData[i].status}-list`);
+        let listElement = document.getElementById(`${jsonData[i].status}-list`); 
         listElement.append(createTaskElementFromData(jsonData[i]));
 
         let tasksCounterElement = listElement.closest('.card').querySelector('.tasks-counter');
         tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) + 1;
     }
+
 }
 
 function createTaskElementFromData(jsonData) {
     console.log(jsonData);
+
     let newTaskElement = document.getElementById('task-template').cloneNode(true);
     newTaskElement.id = jsonData.id;
     newTaskElement.querySelector('.task-name').innerHTML = jsonData.name;
     newTaskElement.querySelector('.task-description').innerHTML = jsonData.desc;
     newTaskElement.querySelector('.task-id').innerHTML = jsonData.id;
-    console.log(newTaskElement.querySelector('.task-id').innerHTML);
     newTaskElement.classList.remove('d-none');
     for (let btn of newTaskElement.querySelectorAll('.move-btn')) {
         btn.onclick = moveBtnHandler;
@@ -79,6 +59,7 @@ function showAlert(msg, category) {
     let alerts = document.querySelector('.alerts');
     let newAlertElement = document.querySelector('.alert-template').cloneNode(true);
     newAlertElement.querySelector('.msg').innerHTML = msg;
+
     if (category == 'success') {
         newAlertElement.classList.add('alert-success');
     }
@@ -94,13 +75,14 @@ function showAlert(msg, category) {
 
 function createTaskElement(form) {
     let newTaskElement = document.getElementById('task-template').cloneNode(true);
-    newTaskElement.id = taskCounter++;
-    newTaskElement.querySelector('.task-name').innerHTML = form.elements['name'].value;
-    newTaskElement.querySelector('.task-description').innerHTML = form.elements['description'].value;
+    newTaskElement.id = form.id;
+    newTaskElement.querySelector('.task-name').innerHTML = form.name;
+    newTaskElement.querySelector('.task-description').innerHTML = form.desc;
     newTaskElement.classList.remove('d-none');
     for (let btn of newTaskElement.querySelectorAll('.move-btn')) {
         btn.onclick = moveBtnHandler;
     }
+    console.log(newTaskElement);
     return newTaskElement;
 }
 
@@ -115,25 +97,96 @@ async function postTask(form) {
         showAlert(errorMsg, 'warning');
     }
 
-    return fetch('http://tasks-api.std-900.ist.mospolytech.ru/api/tasks?api_key=50d2199a-42dc-447d-81ed-d68a443b697e', {
+    let data = await fetch('http://tasks-api.std-900.ist.mospolytech.ru/api/tasks?api_key=50d2199a-42dc-447d-81ed-d68a443b697e', {
         method: 'POST',
         body: formData
-    }).then(response => response.json())
+    })
+        .then(response => response.json());
+    console.log(data);
+    return data;
 }
 
-const deleteTask = async (deleteId) => {
+function updateTask(form) {
+    let taskElement = document.getElementById(form.elements['task-id'].value);
+    taskElement.querySelector('.task-name').innerHTML = form.elements['name'].value;
+    taskElement.querySelector('.task-description').innerHTML = form.elements['description'].value;
+}
+
+
+function actionTaskBtnHandler(event) {
+    let action, form, listElement, tasksCounterElement, alertMsg;
+    form = event.target.closest('.modal').querySelector('form');
+    action = form.elements['action'].value;
+
+
+    if (action == 'create') {
+        listElement = document.getElementById(`${form.elements['column'].value}-list`);
+        postTask(form)
+            .then(array => listElement.append(createTaskElement(array)))
+            .then(array => showAlert(alertMsg = `Задача ${array.name} была успешно создана!`, 'success'));
+
+        tasksCounterElement = listElement.closest('.card').querySelector('.tasks-counter');
+        tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) + 1;
+
+
+    } else if (action == 'edit') {
+        updateTask(form);
+
+        alertMsg = `Задача ${form.elements['name'].value} была успешно обновлена!`;
+    }
+
+    if (alertMsg) {
+        showAlert(alertMsg, 'success');
+    }
+}
+
+function setFormValues(form, jsonData) {
+    form.elements['name'].value = jsonData.name;
+    form.elements['description'].value = jsonData.desc;
+    form.elements['task-id'].value = jsonData.id;
+} // переделали, чтобы данные только с сервера подгружались на просмотр 
+
+function resetForm(form) {
+    form.reset();
+    form.querySelector('select').closest('.mb-3').classList.remove('d-none');
+    form.elements['name'].classList.remove('form-control-plaintext');
+    form.elements['description'].classList.remove('form-control-plaintext');
+}
+
+function prepareModalContent(event) {
+
+    let form = event.target.querySelector('form');
+    resetForm(form);
+
+    let action = event.relatedTarget.dataset.action || 'create';
+
+    form.elements['action'].value = action;
+    event.target.querySelector('.modal-title').innerHTML = titles[action];
+    event.target.querySelector('.action-task-btn').innerHTML = actionBtnText[action];
+
+    if (action == 'edit' || action == 'show') {
+        viewTask(event.relatedTarget.closest('.task').id)
+            .then(jsonData => setFormValues(form, jsonData));
+        event.target.querySelector('select').closest('.mb-3').classList.add('d-none');
+    }
+
+    if (action == 'show') {
+        form.elements['name'].classList.add('form-control-plaintext');
+        form.elements['description'].classList.add('form-control-plaintext');
+        form.elements['name'].classList.remove('form-control');
+        form.elements['description'].classList.remove('form-control');
+    }
+}
+
+async function deleteTask(deleteId) {
     let URL = createURLl('/api/tasks', deleteId);
-    const response = await fetch(URL, {
+    return fetch(URL, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
-        },
-        body: null
+            'Content-type': 'application/json'
+        }
     });
-
-    const data = await response.json();
-    console.log(data);
-};
+}
 
 function updateTask(form) {
     let taskElement = document.getElementById(form.elements['task-id'].value);
@@ -154,7 +207,7 @@ async function putTask(putName, putDesc, taskId) {
         method: 'PUT',
         body: formData
     }).then(response => response.json())
-}
+} // изменение названия и описания 
 
 async function putTaskStatus(putStatus, taskId) {
     let formData = new FormData();
@@ -164,73 +217,21 @@ async function putTaskStatus(putStatus, taskId) {
         method: 'PUT',
         body: formData
     }).then(response => response.json())
-}
+} // смена статуса при нажатии на стрелочку перемещения 
 
-function actionTaskBtnHandler(event) {
-    let action, form, listElement, tasksCounterElement, alertMsg;
-    form = event.target.closest('.modal').querySelector('form');
-    action = form.elements['action'].value;
+async function viewTask(viewId) {
+    let URL = createURLl('/api/tasks', viewId);
+    return fetch(URL)
+        .then(response => response.json())
+        .then(commits => { return commits })
+        .catch(error =>
+            alert(error.status));
 
-
-    if (action == 'create') {
-        listElement = document.getElementById(`${form.elements['column'].value}-list`);
-        listElement.append(createTaskElement(form));
-
-
-        tasksCounterElement = listElement.closest('.card').querySelector('.tasks-counter');
-        tasksCounterElement.innerHTML = Number(tasksCounterElement.innerHTML) + 1;
-
-        postTask(form); //использовать then для элементов ниже 
-
-        alertMsg = `Задача ${form.elements['name'].value} была успешно создана!`;
-    } else if (action == 'edit') {
-        updateTask(form);
-        alertMsg = `Задача ${form.elements['name'].value} была успешно обновлена!`;
-    }
-
-    if (alertMsg) {
-        showAlert(alertMsg, 'success');
-    }
-}
-
-function setFormValues(form, jsonData) {
-    let taskElement = document.getElementById(jsonData.id);
-    form.elements['name'].value = jsonData.name;
-    form.elements['description'].value = jsonData.desc;
-    form.elements['task-id'].value = jsonData.id;
-}
-
-function resetForm(form) {
-    form.reset();
-    form.querySelector('select').closest('.mb-3').classList.remove('d-none');
-    form.elements['name'].classList.remove('form-control-plaintext');
-    form.elements['description'].classList.remove('form-control-plaintext');
-}
-
-function prepareModalContent(event) {
-    let form = event.target.querySelector('form');
-    resetForm(form);
-
-    let action = event.relatedTarget.dataset.action || 'create';
-
-    form.elements['action'].value = action;
-    event.target.querySelector('.modal-title').innerHTML = titles[action];
-    event.target.querySelector('.action-task-btn').innerHTML = actionBtnText[action];
-
-    if (action == 'edit' || action == 'show') {
-        downloadTaskId(event.relatedTarget.closest('.task').id).then(jsonData => setFormValues(form, jsonData));
-        event.target.querySelector('select').closest('.mb-3').classList.add('d-none');
-    }
-
-    if (action == 'show') {
-        form.elements['name'].classList.add('form-control-plaintext');
-        form.elements['description'].classList.add('form-control-plaintext');
-    }
 }
 
 function deleteTaskBtnHandler(event) {
     let form = event.target.closest('.modal').querySelector('form');
-    let alertMsg = `Задача ${form.elements['task-id'].value} была успешно удалена!`;
+    let alertMsg = `Задача была успешно удалена!`;
     let taskElement = document.getElementById(form.elements['task-id'].value);
     let deleteId = form.elements['task-id'].value;
 
@@ -239,6 +240,7 @@ function deleteTaskBtnHandler(event) {
     if (alertMsg) {
         showAlert(alertMsg, 'success');
     }
+
     deleteTask(deleteId).then(taskElement.remove()).then(console.log('успешно удалено'));
 }
 
@@ -281,6 +283,7 @@ let actionBtnText = {
 
 window.onload = function () {
     downloadForm().then(downloadData => getTask(downloadData));
+
     document.querySelector('.action-task-btn').onclick = actionTaskBtnHandler;
     document.getElementById('task-modal').addEventListener('show.bs.modal', prepareModalContent);
     document.getElementById('remove-task-modal').addEventListener('show.bs.modal', function (event) {

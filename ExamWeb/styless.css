@@ -3,12 +3,12 @@ body {
     color: #FFFDD0;
 }
 
-.header {
+.header, .footer {
     background-color: #ffdb8b!important;
     border-color: red!important;
 }
 
-.header a{
+.header a, footer a, footer p{
     color: red!important;
 }
 
@@ -27,9 +27,9 @@ body {
     max-height: 550px;
 }
 
-.restaurants{
+.restaurants, .additional-options{
     background-color: #ffdb8b!important;
-    color: #cd853f;;
+    color: #cd853f;
 }
 
 .search {
@@ -47,4 +47,23 @@ body {
 
 .border-2 {
     border-color: red!important;
+}
+
+.card {
+    background-color: #ffdb8b!important;
+    color: #cd853f!important;
+}
+
+.card button{
+    color: red!important;
+    border-color: red!important;
+}
+
+.card input{
+    border-color: red!important;
+}
+
+.footer i{
+    font-size: 2.5rem;
+    color: red;
 }

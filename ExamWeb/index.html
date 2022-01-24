@@ -37,12 +37,12 @@
                             <a class="nav-link" href="#restaurants">Предприятия общественного питания</a>
                         </li>
                         <li class="nav-item text-lg-center">
-                            <a class="nav-link" href="#">Меню</a>
+                            <a class="nav-link" href="#menu">Меню</a>
                         </li>
                         <li class="nav-item text-lg-center">
-                            <a class="nav-link" href="#">Опции</a>
+                            <a class="nav-link" href="#additional-options">Опции</a>
                         </li>
-                        <li class="nav-item text-lg-center">
+                        <li class=" nav-item text-lg-center">
                             <a class="nav-link" href="#">Административная панель</a>
                         </li>
                     </ul>
@@ -132,25 +132,25 @@
             <section class="search border border-2 rounded container">
                 <form class="row g-4 align-items-center">
                     <div class="col-md-6 px-3 py-1">
-                        <label for="adminArea" class="form-label">Административный округ</label>
+                        <label for="adminArea" class="form-label">Административный округ:</label>
                         <select id="adminArea" class="form-select">
                             <option selected>Не выбрано</option>
                         </select>
                     </div>
                     <div class="col-md-6 px-3 py-1">
-                        <label for="district" class="form-label">Район</label>
+                        <label for="district" class="form-label">Район:</label>
                         <select id="district" class="form-select">
                             <option selected>Не выбрано</option>
                         </select>
                     </div>
                     <div class="col-md-4 px-3 py-1">
-                        <label for="type" class="form-label">Тип</label>
+                        <label for="type" class="form-label">Тип:</label>
                         <select id="type" class="form-select">
                             <option selected>Не выбрано</option>
                         </select>
                     </div>
                     <div class="col-md-4 px-3 py-1">
-                        <label for="discount" class="form-label">Социальная скидка</label>
+                        <label for="discount" class="form-label">Социальная скидка:</label>
                         <select id="discount" class="form-select">
                             <option selected>Не выбрано</option>
                             <option>true</option>
@@ -197,7 +197,71 @@
 
         </section>
 
+        <section class="menu container py-5" id="menu">
+            <div class="text-center">
+                <h2 class="mb-3">Меню</h2>
+                <div class="heading-line mx-auto mb-3"></div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="card" style="width: 18rem;">
+                    <img src="Images/cardIMG.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Карточка №</h5>
+                        <p class="card-text text-center">Краткое описание</p>
+                        <h5 class="card-cost text-center fw-bold">100 P</h5>
+                        <div class="my-3 d-flex justify-content-evenly">
+                            <button class="btn border border-2" id="btn-minus">-</button>
+                            <input class="w-25 border border-2" type="text" placeholder="0" disabled>
+                            <button class="btn border border-2" id="btn-plus">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="additional-options py-5" id="additional-options">
+            <div class="text-center container">
+                <h2 class="mb-3">Опции</h2>
+                <div class="heading-line mx-auto mb-3"></div>
+                <div class="d-flex flex-column w-50 mx-auto">
+                    <div class="d-flex mb-1 justify-content-between border-bottom border-2">
+                        <label class="form-check-label" for="IAmAStudent">Быстрая доставка</label>
+                        <input class="my-auto ms-3" type="checkbox" id="IAmAStudent">
+                    </div>
+                    <div class="d-flex py-1 justify-content-between">
+                        <label class="form-check-label" for="FastDelivery">Социальная скидка</label>
+                        <input class="my-auto ms-3" type="checkbox" id="FastDelivery">
+                    </div>
+                    <div class="border border-2 rounded pt-1">
+                        <div class="px-2 d-flex justify-content-between flex-lg-row flex-column">
+                            <p class="my-auto">Итого: <span id="final-cost"></span></p>
+                            <button class="btn border btn-primary my-2" type="button">Оформить заказ</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
+
+    <footer class="footer border-top border-4">
+        <div class="container text-center py-3">
+            <p>OOO "Сокол Тысячелетия"</p>
+            <div class="row row-cols-lg-3 row-cols-1">
+                <div class="col">
+                    <i class="bi bi-phone-fill"></i>
+                    <a>Телефон: +7 (372) 566-80-07</a>
+                </div>
+                <div class="col">
+                    <i class="bi bi-envelope-plus"></i>
+                    <a class= "text-decoration-none" href="mailto:dinar0607@vk.com">Наша почта</a>
+                </div>
+                <div class="col">
+                    <a href="https://ru-ru.facebook.com/"><i class="bi bi-facebook px-1"></i></a>
+                    <a href="https://www.instagram.com/"><i class="bi bi-instagram px-1"></i></a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"

@@ -44,3 +44,7 @@ body {
 .btn{
     color: #ffdb8b!important;
 }
+
+.border-2 {
+    border-color: red!important;
+}

@@ -9,19 +9,19 @@ function dowloadData(page = 1) {
     xhr.open('GET', url);
     xhr.responseType = 'json';
     xhr.onload = function () {
-        renderDistrictList(this.response);// округ
-        renderRegionList(this.response);// район
+        renderAdmAreaList(this.response);// округ
+        renderDistrictList(this.response);// район
         renderTypeList(this.response);// тип заведения
     }
 }
 
-function renderDistrictList(records) {
-    let districtList = document.getElementById('adminDistrict');
-    let arrayDistrict = [0];
+function renderAdmAreaList(records) {
+    let admAreaList = document.getElementById('adminDistrict');
+    let arrayAdmArea = [0];
     let flag;
     for (let record of records) {
-        for (let i = 0; i < arrayDistrict.length; i++) {
-            if (record.adminDistrict != arrayDistrict[i]){
+        for (let i = 0; i < arrayAdmArea.length; i++) {
+            if (record.admArea != arrayAdmArea[i]){
                 flag = true;
             } else {
                 flag = false;
@@ -30,9 +30,9 @@ function renderDistrictList(records) {
 
         }
         if (flag == true ){
-            districtList.append(createDistrictElement(record));
+            admAreaList.append(createDistrictElement(record));
             flag=0;
-            arrayDistrict.push(record.adminDistrict);
+            arrayAdmArea.push(record.admArea);
         }
     }
 }

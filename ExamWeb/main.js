@@ -1,17 +1,14 @@
 'use strict'
 
-
-
-
 function downloadData(page = 1) {
     let url = "http://exam-2022-1-api.std-900.ist.mospolytech.ru/api/restaurants?api_key=2148a255-3abb-47c7-835c-9b499bb17e42";
     let xhr = new XMLHttpRequest();
     xhr.open('GET', url);
     xhr.responseType = 'json';
     xhr.onload = function () {
-        renderAdmAreaList(this.response);// округ
-        renderDistrictList(this.response);// район
-        renderTypeList(this.response);// тип заведения
+        renderAdmAreaList(this.response); // округ
+        renderDistrictList(this.response); // район
+        renderTypeList(this.response); // тип заведения
     }
     xhr.send;
 }
@@ -87,14 +84,14 @@ function renderTypeList(records) {
 
         }
         if (flag == true) {
-            typeList.append(createDistrictElement(record));
+            typeList.append(createTypeElement(record));
             flag = 0;
             arrayType.push(record.typeObject);
         }
     }
 }
 
-function createTypelement(record) {
+function createTypeElement(record) {
     let itemType = document.createElement('option');
     itemType.innerHTML = record.typeObject;
     return itemType;

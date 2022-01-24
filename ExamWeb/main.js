@@ -10,7 +10,7 @@ function downloadData(page = 1) {
         renderDistrictList(this.response); // район
         renderTypeList(this.response); // тип заведения
     }
-    xhr.send;
+    xhr.send();
 }
 
 function renderAdmAreaList(records) {
